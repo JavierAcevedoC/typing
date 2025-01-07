@@ -1,4 +1,5 @@
 use crate::screen::word as palabra;
+use crate::screen::loader as loader;
 use colored::*;
 
 
@@ -8,7 +9,11 @@ pub fn init() {
 }
 
 fn get_elements() -> String {
-    String::from("Hola,mi,nombre,es,javier")
+    let loaded_content = match loader::load_elements() {
+       Ok(content) => content, 
+       Err(_) => String::from("Test,test,when,is,not,found,the,file"),
+    }; 
+    String::from(loaded_content)
 }
 
 fn compare_word_with_element() {

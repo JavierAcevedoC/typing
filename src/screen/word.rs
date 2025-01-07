@@ -1,10 +1,10 @@
 use colored::*;
-use std::io::{stdin};
+use std::io::stdin;
 
 pub fn get_diff(input: &str, current_word: &str) {
     for (c1, c2) in input.chars().zip(current_word.chars()) {
-        let mut chars_wrong = String::from("");
-        let mut chars_ok = String::from("");
+        let mut chars_wrong = String::new();
+        let mut chars_ok = String::new();
         if c1.ne(&c2) {
             chars_wrong.push(c1);
         } else {
@@ -13,7 +13,7 @@ pub fn get_diff(input: &str, current_word: &str) {
         print!("{}",chars_ok.green());
         print!("{}",chars_wrong.red());
     }
-    println!();
+    println!()
 }
 
 pub fn read_word_line() -> String {
